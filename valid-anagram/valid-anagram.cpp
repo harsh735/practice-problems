@@ -22,7 +22,6 @@ public:
                 newT[t[i]]++;
             }
         }
-    
         return newS == newT ? true : false;
     
     }
