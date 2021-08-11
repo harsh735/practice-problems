@@ -12,12 +12,10 @@ public:
                 newNums.insert(make_pair(nums[i],i));
             }
             else {
-                if(i - newNums[nums[i]] <= k){
+                if(i - newNums[nums[i]] <= k)
                     return true;   
-                }
-                else {
+                else 
                     newNums[nums[i]] = i;
-                }
             }
 
         }
