@@ -11,10 +11,9 @@ public:
         
         for(auto it: newNums){
             if(it.second == 1){
-                ans = it.first;
-                break;
+                return ans = it.first;
             }
         }
-        return ans;
+        return 0;
     }
 };
