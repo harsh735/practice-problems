@@ -2,23 +2,18 @@ class Solution {
 public:
     int singleNumber(vector<int>& nums) {
      
-        if(nums.size() > 1){
-            sort(nums.begin(), nums.end());
-            for(int i = 0; i<nums.size(); i++){
-                if(nums[i] != nums[i+1]){
-                     return nums[i];
-                }
-            
-                i++;
+        unordered_map<int, int> newNums;
+        int ans;
+        
+        for(int i =0; i<nums.size(); i++){
+            newNums[nums[i]]++;
+        }
+        
+        for(auto it: newNums){
+            if(it.second == 1){
+                ans = it.first;
             }
-        
         }
-        
-        else if(nums.size() < 1) {
-            return 0;
-        }
-        
-        return nums[0];
-        
+        return ans;
     }
 };
