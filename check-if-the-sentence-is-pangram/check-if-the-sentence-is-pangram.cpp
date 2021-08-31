@@ -9,14 +9,10 @@ public:
         }
         
         for(auto it:ans){
-            
             if(it.first >= 97 && it.first <= 122){
                 count +=1;
             }
         }
-        if(count == 26){
-            return true;
-        }
-        return false;
+        return count == 26 ? true : false;
     }
 };
