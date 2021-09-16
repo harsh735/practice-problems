@@ -2,11 +2,21 @@ class Solution {
 public:
     int longestPalindrome(string s) {
         
+        
+        //BOB 
+        
+        //the formula is basically to add up all the even chars
+        //and take (sum of odd chars) - 1 to equally divide them
+        //and then we add one to the total sum if there is atleast 1 odd present
+        
+        
+        
+        
+        
         if(s.length() == 1){
             return 1;
         }
         
-        //BOB ;-;
         unordered_map<char , int> str;
         
         for(int i = 0; i<s.length(); i++){
