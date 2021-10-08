@@ -24,7 +24,7 @@ public:
         int twoStep = totalWays(currentStair+2, targetStair, memo);
         
         memo[currentKey] = oneStep + twoStep;
-        return oneStep + twoStep;
+        return memo[currentKey];
     }
     
     
