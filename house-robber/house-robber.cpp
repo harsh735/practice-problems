@@ -11,11 +11,8 @@ public:
         
         int currentKey = currentHouse;
         
-        for(auto it: memo){
-            if(it.first == currentKey){
-                return memo[currentKey]; // return value present at that key
-            }
-        }
+        if(memo.find(currentKey) != memo.end())
+            return memo[currentKey];
         
         int robbing = nums[currentHouse] + robMax(nums,currentHouse+2,memo);
         int notRobbing = robMax(nums,currentHouse+1,memo);
