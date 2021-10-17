@@ -2,6 +2,8 @@ class Solution {
 public:
     int maxProfit(vector<int>& prices, int fee) {
         
+        // (¬‿¬)
+        
         vector<vector<int>> memo(prices.size(), vector<int>(2,-1));
         return solve(prices,fee,0,1,memo);
     }
