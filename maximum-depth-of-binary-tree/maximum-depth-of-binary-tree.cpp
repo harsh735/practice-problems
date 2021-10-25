@@ -21,9 +21,9 @@ public:
     int solve(TreeNode*&root){
         if(root == NULL) return 0;
        
-        int leftChild = 1 + solve(root->left);
-        int rightChild = 1 + solve(root->right);
+        int leftChild = solve(root->left);
+        int rightChild = solve(root->right);
         
-        return max(leftChild,rightChild);
+        return 1 + max(leftChild,rightChild);
     }
 };
