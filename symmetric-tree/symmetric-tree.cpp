@@ -12,9 +12,7 @@
 class Solution {
 public:
     bool isSymmetric(TreeNode* root) {
-        
-        // want to cry because idk if youre ok or not 
-        
+                
         return solve(root->left,root->right);
     }
     
