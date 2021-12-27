@@ -3,8 +3,6 @@ public:
     int memo[2600][2600];
     int lengthOfLIS(vector<int>& nums) {
         
-        // SOS !!!
-        
         memset(memo,-1,sizeof(memo));
         if(nums.size() == 0) return 0;
         return solve(nums,0,-1);
@@ -18,7 +16,6 @@ public:
         int consider = 0;
         if(prev == -1 || nums[currIdx] > nums[prev]) 
            consider = 1 + solve(nums,currIdx + 1,currIdx);
-        
         
         int notConsider = solve(nums,currIdx + 1,prev);
         if(prev != -1) memo[currIdx][prev] = max(consider,notConsider);
