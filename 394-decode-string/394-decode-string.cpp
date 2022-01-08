@@ -12,7 +12,7 @@ public:
         
         for(int i = 0; i<s.size(); i++) {
             
-            if(isdigit(s[i])) curNum = curNum*10 + (s[i] - '0');
+            if(isdigit(s[i])) curNum = (curNum*10 + s[i]) - '0'; //converting the char to int
             if(isalpha(s[i])) curString += s[i];
             
             if(s[i] == '['){
