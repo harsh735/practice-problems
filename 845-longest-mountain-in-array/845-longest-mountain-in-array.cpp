@@ -6,7 +6,7 @@ public:
         int ans =  0; 
         for(int i = 1; i< end - 1; i++){
             int left = i;
-            int right = i + 1;
+            int right = i;
             
             // to check for peak
             if(arr[i] > arr[i + 1] && arr[i - 1] < arr[i]){
