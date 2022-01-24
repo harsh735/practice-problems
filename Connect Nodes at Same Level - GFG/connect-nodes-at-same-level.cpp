@@ -141,7 +141,7 @@ class Solution
     void connect(Node *root)
     {
        // Your Code Here
-       if(root == NU)
+       if(root == NULL) return;
        queue<Node*> q;
        q.push(root);
        q.push(NULL);
