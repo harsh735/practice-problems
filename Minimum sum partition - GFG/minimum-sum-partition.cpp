@@ -14,17 +14,17 @@ class Solution{
 	    return solve(arr,n-1,0,0,memo);
 	} 
 	
-	int solve(int arr[], int i, int s1, int s2 ,unordered_map<string,int>&memo){
+	int solve(int arr[], int currIdx, int s1, int s2 ,unordered_map<string,int>&memo){
 	    
-	    if (i < 0)
+	    if (currIdx < 0)
             return abs(s1 - s2);
             
-        string key = to_string(i) + "|" + to_string(s1);
+        string key = to_string(currIdx) + "|" + to_string(s1);
         if(memo.find(key) != memo.end())
             return memo[key];
             
-        int consider = solve(arr,i - 1,s1 + arr[i],s2,memo);
-        int notConsider = solve(arr,i - 1, s1,s2 + arr[i],memo);
+        int consider = solve(arr,currIdx - 1,s1 + arr[currIdx],s2,memo);
+        int notConsider = solve(arr,currIdx - 1, s1,s2 + arr[currIdx],memo);
         
         return memo[key] = min(consider,notConsider);
 	}
