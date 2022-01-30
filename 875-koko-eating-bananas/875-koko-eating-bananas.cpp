@@ -7,7 +7,7 @@ public:
         for(int i = 0; i<piles.size(); i++){
             time += ceil(1.0 * piles[i] / mid);
         }
-        return time <= h;
+        return time <= h ? true : false;
     }
     
     int minEatingSpeed(vector<int>& piles, int h) {
@@ -26,7 +26,7 @@ public:
         
         while(start <= end){
             int mid = start + (end - start)/2;
-            if(isPossible(piles,h,mid) == true){
+            if(isPossible(piles,h,mid)){
                 ans = mid;
                 end = mid - 1;
             }
