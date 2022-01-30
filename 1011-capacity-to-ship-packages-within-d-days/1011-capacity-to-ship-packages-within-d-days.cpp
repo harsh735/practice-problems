@@ -36,7 +36,7 @@ public:
         while(start <= end) {
             int mid = start + (end - start) / 2;
             
-            if(isValid(weights, days, mid) == true) {
+            if(isValid(weights, days, mid)) {
                 ans = mid;
                 end = mid - 1;
             } 
