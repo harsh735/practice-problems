@@ -30,7 +30,7 @@ public:
         vector<vector<bool>>visited(row,vector<bool>(col,false));
         for(int i = 0; i<row; i++){
             for(int j = 0; j<col; j++){
-                if(grid[i][j] == 1){
+                if(grid[i][j] == 1 && !visited[i][j]){
                     return ans = dfs(grid,i,j,visited,ans);
                 }
             }
