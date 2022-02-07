@@ -24,8 +24,8 @@ The rectangles overlap.</span><div class="open_grepper_editor" title="Edit &amp;
 <pre style="position: relative;"><span style="font-size:18px"><strong>Input:</strong>
 L1=(0,2)
 R1=(1,1)
-L2=(-2,-3)
-R2=(0,2)
+L2=(-2,0)
+R2=(0,-3)
 <strong>Output:</strong>
 0
 <strong>Explanation:</strong>
