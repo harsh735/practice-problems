@@ -4,8 +4,9 @@ public:
          
         for(int i = 0; i<board.size(); i++){
             for(int j = 0; j<board[0].size(); j++){
-                if(board[i][j] == word[0] && dfs(board,i,j,0,word))
+                if(board[i][j] == word[0] && dfs(board,i,j,0,word) == true){
                     return true;
+                }
             }
         }
         return false;
@@ -14,7 +15,7 @@ public:
     bool dfs(vector<vector<char>>&board,int i, int j, int count, string word){
         
         if(count == word.length()) return true;
-        if(i == -1 || i == board.size() || j == -1 || j == board[0].size() || board[i][j] != word[count])
+        if(i < 0 || i >= board.size() || j < 0 || j >= board[0].size() || board[i][j] != word[count])
             return false;
         
         char temp = board[i][j];
