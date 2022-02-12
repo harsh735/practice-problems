@@ -12,15 +12,18 @@ public:
             temp = s[j];
             //deleting the last character
             s.pop_back();
-            //cout<<"old: "<<s<<" ";
             
             //inserting the last character at the beginning
             s.insert(s.begin(),temp);
-            //cout<<"new:  "<<s<<" ";
             
             if(s == goal)
                 return true;
         }
         return false;
+        
+        
+        //OPTIMIZED: 
+        // make temp string = s + s (concat)
+        // use find function to see if goal exists if yes -> true : false;
     }
 };
