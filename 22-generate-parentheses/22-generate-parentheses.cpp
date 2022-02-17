@@ -21,7 +21,7 @@ public:
             string t1 = temp + '(';
             solve(n,ans,open-1,close,t1);
         }
-        if(close > open){
+        if(close!= 0 && close > open){
             string t2 = temp + ')';
             solve(n,ans,open,close -1,t2);
         }
