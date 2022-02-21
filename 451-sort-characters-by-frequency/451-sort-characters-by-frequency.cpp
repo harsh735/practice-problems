@@ -12,13 +12,13 @@ public:
         for(auto it : mp)
             pq.push({it.second,it.first});
 
-        s.clear();
+        string ans =  "";
         while(!pq.empty()){
             int temp = pq.top().first;
             while(temp--) 
-                s += pq.top().second;
+                ans += pq.top().second;
             pq.pop();
         }
-        return s;
+        return ans;
     }
 };
