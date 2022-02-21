@@ -9,13 +9,11 @@ public:
             if(freq == 0)
                 ans = nums[i];
             
-            if(ans == nums[i])
-                freq++;
-            
             if(ans != nums[i])
                 freq--;
             
-           
+            else
+                freq++;
         }
         return ans;
     }
