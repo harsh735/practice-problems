@@ -1,8 +1,10 @@
 class Solution {
 public:
     string frequencySort(string s) {
+        //TC -> O(N)
+        //SC -> O(N)
         
-        map<char,int>mp;
+        unordered_map<char,int>mp;
         priority_queue<pair<int,char>> pq;
         for(char i : s)
             mp[i]++;
