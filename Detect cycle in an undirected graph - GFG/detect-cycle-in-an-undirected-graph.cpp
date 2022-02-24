@@ -34,7 +34,7 @@ class Solution {
     bool isCycle(int V, vector<int> adj[]) {
         // Code here
         vector<int> visited(V,0);
-        for(int i = 1; i<V; i++){
+        for(int i = 1; i < V; i++){
             if(!visited[i]){
                 if(bfs(i,V,adj,visited))
                     return true;
