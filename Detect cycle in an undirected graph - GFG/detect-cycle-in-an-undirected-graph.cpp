@@ -9,24 +9,23 @@ class Solution {
     
     bool bfs(int node,int V,vector<int>adj[],vector<int>&visited){
         
-        vector<int> parent(V, -1);
-        queue<int>q;
-        q.push(node);
+        queue<pair<int,int>>q;
+        q.push({node,-1});
         visited[node] = 1;
         
         while(!q.empty()){
-            int u = q.front();
+            int curr = q.front().first;
+            int prev = q.front().second;
             q.pop();
-
-            for (auto v : adj[u]) {
-                if (!visited[v]) {
-                    visited[v] = true;
-                    q.push(v);
-                    parent[v] = u;
+            
+            for(auto it:adj[curr]){
+                if(!visited[it]){
+                    visited[it] = 1;
+                    q.push({it,curr});
                 }
-                else if (parent[u] != v)
+                else if(prev != it)
                     return true;
-                }
+            }
         }
         return false;
     }
