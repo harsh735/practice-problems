@@ -16,7 +16,7 @@ public:
 	        
 	        for(auto it: adj[curr]){
 	            if(color[it] == -1){
-	                color[it] = 1 - color[curr]; //to get the opposite of the previous color
+	                color[it] = -color[curr]; //to get the opposite of the previous color
 	                q.push(it);
 	            }
 	            else if(color[it] == color[curr]) //if color is same as previous
