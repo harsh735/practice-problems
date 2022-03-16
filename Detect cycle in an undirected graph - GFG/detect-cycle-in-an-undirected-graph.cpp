@@ -7,7 +7,7 @@ class Solution {
   public:
     // Function to detect cycle in an undirected graph.
     
-    bool bfs(int node,int prev,vector<int>adj[],vector<int>&visited){
+    bool bfs(int node,int prev, vector<int>adj[], vector<int>&visited){
         
         /*  BFS APPROACH
                     
@@ -31,33 +31,31 @@ class Solution {
         }
         return false;
         */
-    }
-    
-    
+        
         //DFS APPROACH
-        bool checkForCycle(int node, int parent, vector<int> &vis, vector<int> adj[]) {
-        vis[node] = 1; 
-        for(auto it: adj[node]) {
-            if(!vis[it]) {
-                if(checkForCycle(it, node, vis, adj)) 
-                    return true; 
+        
+        
+        visited[node] = 1;
+        for(auto it: adj[node]){
+            if(visited[it] == 0){
+                if(bfs(it,node,adj,visited)) return true;
             }
-            else if(it!=parent) 
-                return true; 
+            else if(it != prev) return true;
         }
         
-        return false; 
+        return false;
     }
+    
+    
     bool isCycle(int V, vector<int> adj[]) {
         // Code here
-       vector<int> vis(V+1, 0); 
-	    for(int i = 0;i<V;i++) {
-	        if(!vis[i]) {
-	            if(checkForCycle(i, -1, vis, adj)) return true; 
-	        }
-	    }
-	    
-	    return false; 
+        vector<int> visited(V + 1,0);
+        for(int i = 0; i < V; i++){
+            if(!visited[i]){
+                if(bfs(i, -1 , adj , visited)) return true;
+            }
+        }
+        return false;
     }
 };
 
