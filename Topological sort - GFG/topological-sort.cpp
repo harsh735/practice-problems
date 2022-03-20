@@ -10,6 +10,44 @@ class Solution
 	vector<int> topoSort(int V, vector<int> adj[]) 
 	{
 	    // code here
+	    //BFS KAHN'S ALGORITHM
+	    queue<int> q;
+	    vector<int> inDegree(V,0);
+	    
+	    //maintaining array for indegree of each adjacent node
+	    for(int i = 0; i<V; i++){
+	        for(auto it: adj[i]){
+	            inDegree[it]++;
+	        }
+	    }
+	    
+	    //if indegree == 0 , push into queue
+	    for(int i = 0; i<V; i++){
+	        if(inDegree[i] == 0){
+	            q.push(i);
+	        }
+	    }
+	    
+	    vector<int>ans;
+	    //standard bfs
+	    while(!q.empty()){
+	        int node = q.front();
+	        q.pop();
+	        ans.push_back(node);
+	        
+	        for(auto it: adj[node]){
+	            //reducing indegree by 1 as we traverse
+	            inDegree[it]--;
+	            //if indegree count == 0, push it into queue as final answer
+	            if(inDegree[it] == 0){
+	                q.push(it);
+	            }
+	        }
+	    }
+	    return ans;
+	    
+	    
+	   /*  DFS APPROACH
 	    vector<int> ans;
 	    vector<int> vis(V+1,0);
 	    stack<int> st;
@@ -25,9 +63,11 @@ class Solution
 	        st.pop();
 	    }
 	    return ans;
+	    */
+	    
 	}
 	
-	void dfs(int node, vector<int>adj[], vector<int>&vis, stack<int>&st){
+	/*void dfs(int node, vector<int>adj[], vector<int>&vis, stack<int>&st){
 	    vis[node] = 1;
 	    for(auto it: adj[node]){
 	        if(vis[it] == 0){
@@ -37,6 +77,7 @@ class Solution
 	    
 	    st.push(node); //once dfs call is over INSERT current node to stack
 	}
+	*/
 };
 
 // { Driver Code Starts.
