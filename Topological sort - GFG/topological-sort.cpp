@@ -21,7 +21,7 @@ class Solution
 	        }
 	    }
 	    
-	    //if indegree == 0 , push into queue
+	    //if indegree == 0 , push that node into queue
 	    for(int i = 0; i<V; i++){
 	        if(inDegree[i] == 0){
 	            q.push(i);
@@ -33,15 +33,13 @@ class Solution
 	    while(!q.empty()){
 	        int node = q.front();
 	        q.pop();
+	        //final ans = order of insertion of nodes, so pushing it here
 	        ans.push_back(node);
 	        
 	        for(auto it: adj[node]){
-	            //reducing indegree by 1 as we traverse
 	            inDegree[it]--;
-	            //if indegree count == 0, push it into queue as final answer
-	            if(inDegree[it] == 0){
+	            if(inDegree[it] == 0)
 	                q.push(it);
-	            }
 	        }
 	    }
 	    return ans;
