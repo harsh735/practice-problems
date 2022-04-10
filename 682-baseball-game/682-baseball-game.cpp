@@ -22,3 +22,6 @@ public:
         return ans = accumulate(res.begin(),res.end(), 0);
     }
 };
+
+
+//optimal approach -> use stack instead of vector
