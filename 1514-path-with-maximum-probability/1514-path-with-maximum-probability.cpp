@@ -7,16 +7,16 @@ public:
             g[edges[i][0]].push_back({edges[i][1] , succProb[i]});
             g[edges[i][1]].push_back({edges[i][0] , succProb[i]});
         }
-        priority_queue<pair<double,int>> pq; //take maximum of Path prbabilty at the top
+        priority_queue<pair<double,int>,vector<pair<double,int>>> pq; //take maximum of Path prbabilty at the top
         vector<double> prob(n,0.0);
         vector<bool> visited(n,false);
         pq.push({1.0,start});
         while(!pq.empty()) 
         {
-            pair<double,int> topnode = pq.top();
+            double val = pq.top().first;
+            int node = pq.top().second;
             pq.pop();
-            double val = topnode.first;
-            int node = topnode.second;
+            
             
             if(val > prob[node]) 
             {
