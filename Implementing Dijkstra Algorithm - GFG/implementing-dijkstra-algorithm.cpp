@@ -12,15 +12,15 @@ class Solution
     {
         // Code here
         
+        vector<int> distTo(V,INT_MAX);
         priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> pq;
-        vector<int> distTo(V+1,INT_MAX); //distance array all vals set to infinity
+        distTo[S] = 0;
+        pq.push({0,S});
         
-        distTo[S] = 0; //setting source ka distance to 0
-        pq.push(make_pair(0,S));
         
         while(!pq.empty()){
+            int node = pq.top().second;
             int distance = pq.top().first;
-            int node = pq.top().second; 
             pq.pop();
             
             for(auto it: adj[node]){
@@ -28,11 +28,10 @@ class Solution
                 int nextDistance = it[1];
                 if(distTo[nextNode] > distance + nextDistance){
                     distTo[nextNode] = distance + nextDistance;
-                    pq.push(make_pair(distTo[nextNode],nextNode));
+                    pq.push({distTo[nextNode],nextNode});
                 }
             }
         }
-        
         return distTo; 
         
     }
