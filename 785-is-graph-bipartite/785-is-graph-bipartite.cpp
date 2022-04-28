@@ -16,21 +16,24 @@ public:
     
     
     bool bfs(int node, vector<vector<int>>& graph, int color[]){
+        
         queue<int> q;
         q.push(node);
+        
         while(!q.empty()){
-            int curr = q.front();
+            int node = q.front();
             q.pop();
             
-            for(auto it: graph[curr]){
+            for(auto it: graph[node]){
                 if(color[it] == -1){
-                    color[it] = 1 - color[curr];
+                    color[it] = 1 - color[node];
                     q.push(it);
                 }
-                else if(color[it] == color[curr])
-                    return false;
+                else if(color[it] == color[node]) return false;
             }
         }
+        
         return true;
+    
     }
 };
